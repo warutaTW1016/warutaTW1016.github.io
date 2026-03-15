@@ -114,8 +114,10 @@
     // ================================================================
     function renderCards(year) {
       const panel = document.getElementById("panel-" + year);
-      const items = products[year];
-      if (!items || !panel) return;
+      const items = (products[year] || []).filter(function(p) {
+        return !(p.sold === true || p.sold === "true" || p.sold === 1 || p.sold === "1");
+      });
+      if (!panel) return;
 
       panel.innerHTML = "<div class=\"cards-grid\">" + items.map(function (p, i) { return cardHTML(p, i); }).join("") + "</div>";
 
