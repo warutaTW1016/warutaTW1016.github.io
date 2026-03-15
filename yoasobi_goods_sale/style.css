@@ -196,6 +196,43 @@ body {
   opacity: 0.7;
 }
 
+/* Sold Out Overlay */
+.card-sold {
+  pointer-events: none;
+}
+.card-sold .card-img {
+  opacity: 0.35;
+  filter: grayscale(85%);
+}
+.card-sold .card-meta, .card-sold .card-name {
+  opacity: 0.5;
+}
+.sold-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+}
+.sold-text {
+  color: #ff4255;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+  transform: rotate(-15deg);
+  border: 4px solid #ff4255;
+  padding: 8px 16px;
+  background: rgba(10, 0, 0, 0.85);
+  box-shadow: 0 0 20px rgba(255, 66, 85, 0.5);
+  text-shadow: 0 0 15px rgba(255, 66, 85, 0.7);
+  backdrop-filter: blur(2px);
+}
+
 /* Badges */
 .card-badges {
   position: absolute;

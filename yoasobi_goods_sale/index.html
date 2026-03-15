@@ -67,16 +67,16 @@
         { name: "POP OUT Facetowel", qty: 1, price: 400, notes: "使用過", img: "images/2024/popout_facetowel_b.jpg" },
         { name: "POP OUT crewneck pullover", qty: 1, price: 1500, notes: "尺寸 L", img: "images/2024/popout_crewneck.jpg" },
         { name: "YOASOBI Ringer Tee", qty: 1, price: 800, notes: "尺寸 M", img: "images/2024/ringertee.jpg" },
-        { name: "YOASOBI x Pickleds Frog Bean Doll (THE BOOK 1)", qty: 1, price: 1200, notes: "", img: "images/2024/beandoll_a.jpg" },
-        { name: "YOASOBI x Pickleds Frog Bean Doll (THE BOOK 2)", qty: 1, price: 1200, notes: "", img: "images/2024/beandoll_b.jpg" },
-        { name: "YOASOBI x Pickleds Frog Bean Doll (THE BOOK 3)", qty: 1, price: 1200, notes: "", img: "images/2024/beandoll_c.jpg" },
+        { name: "YOASOBI x Pickleds Frog Bean Doll (THE BOOK 1)", qty: 1, price: 1200, sold: true, notes: "", img: "images/2024/beandoll_a.jpg" },
+        { name: "YOASOBI x Pickleds Frog Bean Doll (THE BOOK 2)", qty: 1, price: 1200, sold: true, notes: "", img: "images/2024/beandoll_b.jpg" },
+        { name: "YOASOBI x Pickleds Frog Bean Doll (THE BOOK 3)", qty: 1, price: 1200, sold: true, notes: "", img: "images/2024/beandoll_c.jpg" },
         { name: "Surrealism Container Box", qty: 1, price: 3000, notes: "", img: "images/2024/surrealism_containerbox.jpg" },
         { name: "YOASOBI Rug Mat", qty: 1, price: 2500, notes: "", img: "images/2024/rugmat.jpg" },
         { name: "Surrealism Poster", qty: 3, price: 0, notes: "滿額贈送", img: "images/2024/surrealism_poster.jpg" },
         { name: "Surrealism Beach Towel", qty: 1, price: 800, notes: "", img: "images/2024/surrealism_beachtowel_a.jpg" },
         { name: "Surrealism Beach Towel", qty: 1, price: 800, notes: "", img: "images/2024/surrealism_beachtowel.jpg" },
-        { name: "Surrealism Face Towel", qty: 1, price: 400, notes: "使用過", img: "images/2024/surrealism_facetowel_a.jpg" },
-        { name: "Surrealism Face Towel", qty: 1, price: 400, notes: "使用過", img: "images/2024/surrealism_facetowel.jpg" },
+        { name: "Surrealism Face Towel", qty: 1, price: 400, sold: true, notes: "使用過", img: "images/2024/surrealism_facetowel_a.jpg" },
+        { name: "Surrealism Face Towel", qty: 1, price: 400, sold: true, notes: "使用過", img: "images/2024/surrealism_facetowel.jpg" },
         { name: "ASIA TOUR Limited Edition Rubber Key Chain", qty: 1, price: 1000, notes: "全套一組", img: "images/2024/asiatour_keychain.jpg" },
         { name: "ASIA TOUR Limited Edition SURREALISM Beach Towel", qty: 1, price: 800, notes: "", img: "images/2024/asiatour_beachtowel_a.jpg" },
         { name: "ASIA TOUR Limited Edition SURREALISM Beach Towel", qty: 1, price: 800, notes: "", img: "images/2024/asiatour_beachtowel_b.jpg" },
@@ -128,6 +128,7 @@
     function cardHTML(p, idx) {
       var isFree = p.price === 0;
       var isUsed = p.notes && (p.notes.indexOf("使用過") !== -1 || p.notes.indexOf("拆封") !== -1);
+      var isSold = p.sold === true || p.sold === "true" || p.sold === 1 || p.sold === "1";
       var priceStr = isFree
         ? "<span class=\"price-free\">贈品</span>"
         : "<span class=\"price-value\">NT$" + p.price.toLocaleString() + "</span>";
@@ -136,9 +137,10 @@
       if (isFree) badges.push("<span class=\"badge badge-free\">贈品</span>");
       if (isUsed) badges.push("<span class=\"badge badge-used\">已使用</span>");
 
-      return "<article class=\"card\" style=\"animation-delay:" + (idx * 0.04) + "s\">" +
+      return "<article class=\"card" + (isSold ? " card-sold" : "") + "\" style=\"animation-delay:" + (idx * 0.04) + "s\">" +
         "<div class=\"card-img-wrap\">" +
         "<img class=\"card-img\" src=\"" + p.img + "\" alt=\"" + p.name + "\" loading=\"lazy\" />" +
+        (isSold ? "<div class=\"sold-overlay\"><span class=\"sold-text\">SOLD OUT</span></div>" : "") +
         (badges.length ? "<div class=\"card-badges\">" + badges.join("") + "</div>" : "") +
         "</div>" +
         "<div class=\"card-body\">" +
