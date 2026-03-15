@@ -31,7 +31,8 @@
     <button class="tab-btn" data-year="2023" role="tab" aria-selected="false" id="tab-2023">2023</button>
     <button class="tab-btn active" data-year="2024" role="tab" aria-selected="true" id="tab-2024">2024</button>
     <button class="tab-btn" data-year="2025" role="tab" aria-selected="false" id="tab-2025">2025</button>
-    <button class="tab-btn tab-btn-sold" data-year="sold" role="tab" aria-selected="false" id="tab-sold">SOLD OUT</button>
+    <button class="tab-btn tab-btn-sold" data-year="sold" role="tab" aria-selected="false" id="tab-sold">SOLD
+      OUT</button>
     <span class="tab-indicator" id="tab-indicator"></span>
   </nav>
 
@@ -72,7 +73,7 @@
         { name: "YOASOBI x Pickleds Frog Bean Doll (THE BOOK 1)", qty: 1, price: 1200, sold: true, notes: "", img: "images/2024/beandoll_a.jpg" },
         { name: "YOASOBI x Pickleds Frog Bean Doll (THE BOOK 2)", qty: 1, price: 1200, sold: true, notes: "", img: "images/2024/beandoll_b.jpg" },
         { name: "YOASOBI x Pickleds Frog Bean Doll (THE BOOK 3)", qty: 1, price: 1200, sold: true, notes: "", img: "images/2024/beandoll_c.jpg" },
-        { name: "Surrealism Container Box", qty: 1, price: 3000, notes: "", img: "images/2024/surrealism_containerbox.jpg" },
+        { name: "Surrealism Container Box", qty: 1, price: 3000, sold: true, notes: "", img: "images/2024/surrealism_containerbox.jpg" },
         { name: "YOASOBI Rug Mat", qty: 1, price: 2500, notes: "", img: "images/2024/rugmat.jpg" },
         { name: "Surrealism Poster", qty: 3, price: 0, notes: "滿額贈送", img: "images/2024/surrealism_poster.jpg" },
         { name: "Surrealism Beach Towel", qty: 1, price: 800, notes: "", img: "images/2024/surrealism_beachtowel_a.jpg" },
@@ -88,7 +89,7 @@
         { name: "ikura Teru Teru Bozu Doll", qty: 2, price: 2000, notes: "", img: "images/2024/ikura_doll.jpg" },
         { name: "ayase Pillowcase", qty: 2, price: 700, notes: "", img: "images/2024/ayase_pillow.jpg" },
         { name: "2024 Asia Tour Limited - Korea Soju Glass", qty: 1, price: 2000, notes: "", img: "images/2024/korea_glass.jpg" },
-        { name: "2024 Asia Tour Limited - HK Mahjong Charm", qty: 1, price: 3500, notes: "", img: "images/2024/hk_mahjong.jpg" },
+        { name: "2024 Asia Tour Limited - HK Mahjong Charm", qty: 1, price: 3500, sold: true, notes: "", img: "images/2024/hk_mahjong.jpg" },
         { name: "2024 Asia Tour Limited - Shanghai Ribbon", qty: 2, price: 700, notes: "", img: "images/2024/shanghai_ribbon.jpg" },
         { name: "2024 Asia Tour Limited - Jakarta Scarf", qty: 6, price: 500, notes: "", img: "images/2024/jakarta_scarf.jpg" },
         { name: "2024 Asia Tour Limited - Singapore Umbrella", qty: 1, price: 1000, notes: "", img: "images/2024/singapore_umbrella.jpg" }
@@ -114,7 +115,7 @@
     // ================================================================
     function renderCards(year) {
       const panel = document.getElementById("panel-" + year);
-      const items = (products[year] || []).filter(function(p) {
+      const items = (products[year] || []).filter(function (p) {
         return !(p.sold === true || p.sold === "true" || p.sold === 1 || p.sold === "1");
       });
       if (!panel) return;
@@ -207,8 +208,8 @@
       if (!panel) return;
 
       var allSold = [];
-      ["2023", "2024", "2025"].forEach(function(year) {
-        (products[year] || []).forEach(function(p) {
+      ["2023", "2024", "2025"].forEach(function (year) {
+        (products[year] || []).forEach(function (p) {
           var isSold = p.sold === true || p.sold === "true" || p.sold === 1 || p.sold === "1";
           if (isSold) allSold.push(p);
         });
@@ -219,12 +220,12 @@
         return;
       }
 
-      panel.innerHTML = "<div class=\"cards-grid\">" + allSold.map(function(p, i) {
+      panel.innerHTML = "<div class=\"cards-grid\">" + allSold.map(function (p, i) {
         return cardHTML(p, i);
       }).join("") + "</div>";
 
-      panel.querySelectorAll(".card-img").forEach(function(img) {
-        img.addEventListener("error", function() {
+      panel.querySelectorAll(".card-img").forEach(function (img) {
+        img.addEventListener("error", function () {
           this.src = "images/placeholder.png";
           this.classList.add("is-placeholder");
         });
