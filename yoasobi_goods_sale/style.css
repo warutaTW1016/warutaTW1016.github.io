@@ -112,6 +112,25 @@ body {
 .tab-btn:hover { color: var(--text-mid); }
 .tab-btn.active { color: var(--gold-light); }
 
+/* SOLD OUT tab — red theme */
+.tab-btn-sold { color: rgba(255,66,85,0.55); }
+.tab-btn-sold:hover { color: rgba(255,66,85,0.8); }
+.tab-btn-sold.active { color: #ff4255; }
+.tab-btn-sold.active ~ .tab-indicator,
+.tab-btn-sold.active + .tab-indicator {
+  background: linear-gradient(90deg, #cc0011, #ff4255);
+  box-shadow: 0 0 12px rgba(255,66,85,0.6);
+}
+
+/* No sold items placeholder */
+.no-sold-msg {
+  text-align: center;
+  padding: 80px 20px;
+  color: var(--text-lo);
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+}
+
 .tab-indicator {
   position: absolute;
   bottom: 0;
