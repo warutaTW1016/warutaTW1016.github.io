@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YOASOBI 周邊販售型錄 | warutaTW1016</title>
+  <meta name="description" content="warutaTW1016 的 YOASOBI 周邊商品販售型錄，包含 2023〜2025 年購入的官方周邊，歡迎洽詢。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Outfit:wght@300;400;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ===== HERO ===== -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-logo">YOASOBI</div>
+      <h1 class="hero-title">周邊販售型錄</h1>
+      <p class="hero-sub">私人收藏轉售 · 歡迎洽詢 IG: @waruta_yoasobi</p>
+    </div>
+    <div class="hero-deco" aria-hidden="true"></div>
+  </header>
+
+  <!-- ===== TABS ===== -->
+  <nav class="tabs-nav" role="tablist" aria-label="年份分類">
+    <button class="tab-btn" data-year="2023" role="tab" aria-selected="false" id="tab-2023">2023</button>
+    <button class="tab-btn active" data-year="2024" role="tab" aria-selected="true" id="tab-2024">2024</button>
+    <button class="tab-btn" data-year="2025" role="tab" aria-selected="false" id="tab-2025">2025</button>
+    <span class="tab-indicator" id="tab-indicator"></span>
+  </nav>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="main-content">
+    <div class="year-panel" id="panel-2023" role="tabpanel" aria-labelledby="tab-2023"></div>
+    <div class="year-panel active" id="panel-2024" role="tabpanel" aria-labelledby="tab-2024"></div>
+    <div class="year-panel" id="panel-2025" role="tabpanel" aria-labelledby="tab-2025"></div>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <p>&#169; 2026 @waruta_yoasobi &middot; 私人轉售，非官方商店</p>
+    <p class="footer-note">商品圖片來源：<a href="https://yoasobi-onlinestore.com" target="_blank" rel="noopener">YOASOBI
+        Online Store</a></p>
+  </footer>
+
+  <script>
+    // ================================================================
+    //  PRODUCT DATA
+    // ================================================================
+    const products = {
+      "2023": [
+        { name: "YOASOBI Beach Towel", qty: 1, price: 1200, notes: "", img: "images/2023/beachtowel.jpg" },
+        { name: "YOASOBI book sticker 4", qty: 1, price: 400, notes: "", img: "images/2023/booksticker4.png" }
+      ],
+
+      "2024": [
+        { name: "YOASOBI x Zepp Growler Bottle", qty: 1, price: 2000, notes: "", img: "images/2024/growler_a.jpg" },
+        { name: "YOASOBI x Zepp Growler Bottle", qty: 1, price: 2000, notes: "", img: "images/2024/growler_b.jpg" },
+        { name: "YOASOBI x Zepp Growler Bottle", qty: 1, price: 1300, notes: "已拆封使用末就口", img: "images/2024/growler_a.jpg" },
+        { name: "POP OUT Rubber Key Chain", qty: 1, price: 500, notes: "", img: "images/2024/popout_keychain.jpg" },
+        { name: "POP OUT Facetowel", qty: 1, price: 400, notes: "使用過", img: "images/2024/popout_facetowel_a.jpg" },
+        { name: "POP OUT Facetowel", qty: 1, price: 400, notes: "使用過", img: "images/2024/popout_facetowel_b.jpg" },
+        { name: "POP OUT crewneck pullover", qty: 1, price: 1500, notes: "尺寸 L", img: "images/2024/popout_crewneck.jpg" },
+        { name: "YOASOBI Ringer Tee", qty: 1, price: 800, notes: "尺寸 M", img: "images/2024/ringertee.jpg" },
+        { name: "YOASOBI x Pickleds Frog Bean Doll (THE BOOK 1)", qty: 1, price: 1200, notes: "", img: "images/2024/beandoll_a.jpg" },
+        { name: "YOASOBI x Pickleds Frog Bean Doll (THE BOOK 2)", qty: 1, price: 1200, notes: "", img: "images/2024/beandoll_b.jpg" },
+        { name: "YOASOBI x Pickleds Frog Bean Doll (THE BOOK 3)", qty: 1, price: 1200, notes: "", img: "images/2024/beandoll_c.jpg" },
+        { name: "Surrealism Container Box", qty: 1, price: 3000, notes: "", img: "images/2024/surrealism_containerbox.jpg" },
+        { name: "YOASOBI Rug Mat", qty: 1, price: 2500, notes: "", img: "images/2024/rugmat.jpg" },
+        { name: "Surrealism Poster", qty: 3, price: 0, notes: "滿額贈送", img: "images/2024/surrealism_poster.jpg" },
+        { name: "Surrealism Beach Towel", qty: 1, price: 800, notes: "", img: "images/2024/surrealism_beachtowel_a.jpg" },
+        { name: "Surrealism Beach Towel", qty: 1, price: 800, notes: "", img: "images/2024/surrealism_beachtowel.jpg" },
+        { name: "Surrealism Face Towel", qty: 1, price: 400, notes: "使用過", img: "images/2024/surrealism_facetowel_a.jpg" },
+        { name: "Surrealism Face Towel", qty: 1, price: 400, notes: "使用過", img: "images/2024/surrealism_facetowel.jpg" },
+        { name: "ASIA TOUR Limited Edition Rubber Key Chain", qty: 1, price: 1000, notes: "全套一組", img: "images/2024/asiatour_keychain.jpg" },
+        { name: "ASIA TOUR Limited Edition SURREALISM Beach Towel", qty: 1, price: 800, notes: "", img: "images/2024/asiatour_beachtowel_a.jpg" },
+        { name: "ASIA TOUR Limited Edition SURREALISM Beach Towel", qty: 1, price: 800, notes: "", img: "images/2024/asiatour_beachtowel_b.jpg" },
+        { name: "ASIA TOUR Limited Edition SURREALISM Face Towel", qty: 1, price: 400, notes: "使用過", img: "images/2024/asiatour_facetowel_a.jpg" },
+        { name: "ASIA TOUR Limited Edition SURREALISM Face Towel", qty: 1, price: 400, notes: "使用過", img: "images/2024/asiatour_facetowel_b.jpg" },
+        { name: "Curry Plate & Spoon Set", qty: 1, price: 1200, notes: "", img: "images/2024/curry_plate.jpg" },
+        { name: "ikura Teru Teru Bozu Doll", qty: 2, price: 2000, notes: "", img: "images/2024/ikura_doll.jpg" },
+        { name: "ayase Pillowcase", qty: 2, price: 700, notes: "", img: "images/2024/ayase_pillow.jpg" },
+        { name: "2024 Asia Tour Limited - Korea Soju Glass", qty: 1, price: 2000, notes: "", img: "images/2024/korea_glass.jpg" },
+        { name: "2024 Asia Tour Limited - HK Mahjong Charm", qty: 1, price: 3500, notes: "", img: "images/2024/hk_mahjong.jpg" },
+        { name: "2024 Asia Tour Limited - Shanghai Ribbon", qty: 2, price: 700, notes: "", img: "images/2024/shanghai_ribbon.jpg" },
+        { name: "2024 Asia Tour Limited - Jakarta Scarf", qty: 6, price: 500, notes: "", img: "images/2024/jakarta_scarf.jpg" },
+        { name: "2024 Asia Tour Limited - Singapore Umbrella", qty: 1, price: 1000, notes: "", img: "images/2024/singapore_umbrella.jpg" }
+      ],
+
+      "2025": [
+        { name: "Beer Glass produced by Ayase", qty: 2, price: 750, notes: "", img: "images/2025/beerglass.jpg" },
+        { name: "WAN! WAN! Hair clip Sets", qty: 1, price: 600, notes: "", img: "images/2025/wanwan_hairclip.jpg" },
+        { name: "WAN! WAN! Pouch", qty: 1, price: 750, notes: "", img: "images/2025/wanwan_pouch.jpg" },
+        { name: "WAN! WAN! Tote Bag", qty: 1, price: 750, notes: "", img: "images/2025/wanwan_totebag.jpg" },
+        { name: "WANDARA Face Towel", qty: 1, price: 400, notes: "使用過", img: "images/2025/wandara_facetowel_a.jpg" },
+        { name: "WANDARA Face Towel", qty: 1, price: 400, notes: "使用過", img: "images/2025/wandara_facetowel_b.jpg" },
+        { name: "WAN!WAN! PVC KeyChain", qty: 1, price: 540, notes: "", img: "images/2025/wanwan_keychain_a.jpg" },
+        { name: "WAN!WAN! PVC KeyChain", qty: 1, price: 540, notes: "", img: "images/2025/wanwan_keychain_b.jpg" },
+        { name: "WAN!WAN! PVC KeyChain", qty: 1, price: 540, notes: "", img: "images/2025/wanwan_keychain_c.jpg" },
+        { name: "YASB Strap", qty: 1, price: 660, notes: "", img: "images/2025/yasb_strap.jpg" },
+        { name: "YASB Rhinestone Logo Zip Hoodie", qty: 1, price: 1800, notes: "尺寸 XL - 只試過一次，沒有袋子", img: "images/2025/yasb_ziphoodie.jpg" }
+      ]
+    };
+
+    // ================================================================
+    //  RENDER CARDS
+    // ================================================================
+    function renderCards(year) {
+      const panel = document.getElementById("panel-" + year);
+      const items = products[year];
+      if (!items || !panel) return;
+
+      panel.innerHTML = "<div class=\"cards-grid\">" + items.map(function (p, i) { return cardHTML(p, i); }).join("") + "</div>";
+
+      panel.querySelectorAll(".card-img").forEach(function (img) {
+        img.addEventListener("error", function () {
+          this.src = "images/placeholder.png";
+          this.classList.add("is-placeholder");
+        });
+      });
+    }
+
+    function cardHTML(p, idx) {
+      var isFree = p.price === 0;
+      var isUsed = p.notes && (p.notes.indexOf("使用過") !== -1 || p.notes.indexOf("拆封") !== -1);
+      var priceStr = isFree
+        ? "<span class=\"price-free\">贈品</span>"
+        : "<span class=\"price-value\">NT$" + p.price.toLocaleString() + "</span>";
+
+      var badges = [];
+      if (isFree) badges.push("<span class=\"badge badge-free\">贈品</span>");
+      if (isUsed) badges.push("<span class=\"badge badge-used\">已使用</span>");
+
+      return "<article class=\"card\" style=\"animation-delay:" + (idx * 0.04) + "s\">" +
+        "<div class=\"card-img-wrap\">" +
+        "<img class=\"card-img\" src=\"" + p.img + "\" alt=\"" + p.name + "\" loading=\"lazy\" />" +
+        (badges.length ? "<div class=\"card-badges\">" + badges.join("") + "</div>" : "") +
+        "</div>" +
+        "<div class=\"card-body\">" +
+        "<h2 class=\"card-name\">" + p.name + "</h2>" +
+        "<div class=\"card-meta\">" +
+        "<div class=\"meta-row\"><span class=\"meta-label\">數量</span><span class=\"meta-val qty-val\">" + p.qty + "</span></div>" +
+        "<div class=\"meta-row\"><span class=\"meta-label\">售價</span><span class=\"meta-val\">" + priceStr + "</span></div>" +
+        "</div>" +
+        (p.notes ? "<p class=\"card-notes\">" + p.notes + "</p>" : "") +
+        "</div>" +
+        "</article>";
+    }
+
+    // ================================================================
+    //  TABS
+    // ================================================================
+    function initTabs() {
+      var btns = document.querySelectorAll(".tab-btn");
+      var indicator = document.getElementById("tab-indicator");
+
+      function moveIndicator(btn) {
+        indicator.style.width = btn.offsetWidth + "px";
+        indicator.style.left = btn.offsetLeft + "px";
+      }
+
+      function activateTab(year, btn) {
+        btns.forEach(function (b) {
+          b.classList.remove("active");
+          b.setAttribute("aria-selected", "false");
+        });
+        btn.classList.add("active");
+        btn.setAttribute("aria-selected", "true");
+        moveIndicator(btn);
+        document.querySelectorAll(".year-panel").forEach(function (p) { p.classList.remove("active"); });
+        document.getElementById("panel-" + year).classList.add("active");
+      }
+
+      btns.forEach(function (btn) {
+        btn.addEventListener("click", function () { activateTab(btn.dataset.year, btn); });
+      });
+
+      var active = document.querySelector(".tab-btn.active");
+      if (active) { requestAnimationFrame(function () { moveIndicator(active); }); }
+    }
+
+    // ================================================================
+    //  INIT
+    // ================================================================
+    document.addEventListener("DOMContentLoaded", function () {
+      ["2023", "2024", "2025"].forEach(renderCards);
+      initTabs();
+    });
+  </script>
+</body>
+
+</html>
