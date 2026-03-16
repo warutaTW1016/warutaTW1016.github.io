@@ -58,7 +58,7 @@
     const products = {
       "2023": [
         { name: "YOASOBI Beach Towel", qty: 1, price: 1200, sold: true, notes: "", img: "images/2023/beachtowel.jpg" },
-        { name: "YOASOBI book sticker 4", qty: 1, price: 400, notes: "", img: "images/2023/booksticker4.png" }
+        { name: "YOASOBI book sticker 4", qty: 1, price: 400, sold: true, notes: "", img: "images/2023/booksticker4.png" }
       ],
 
       "2024": [
@@ -113,10 +113,22 @@
     // ================================================================
     //  RENDER CARDS
     // ================================================================
+    function isSoldItem(p) {
+      return p.sold === true || p.sold === "true" || p.sold === 1 || p.sold === "1";
+    }
+
     function renderCards(year) {
       const panel = document.getElementById("panel-" + year);
-      const items = products[year] || [];
       if (!panel) return;
+
+      // 未售出：依售價高→低；售出：排在後面
+      const items = (products[year] || []).slice().sort(function(a, b) {
+        var aSold = isSoldItem(a) ? 1 : 0;
+        var bSold = isSoldItem(b) ? 1 : 0;
+        if (aSold !== bSold) return aSold - bSold; // 未售出在前
+        if (!aSold) return b.price - a.price;       // 未售出：高價優先
+        return 0;
+      });
 
       panel.innerHTML = "<div class=\"cards-grid\">" + items.map(function (p, i) { return cardHTML(p, i); }).join("") + "</div>";
 
